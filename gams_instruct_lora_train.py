@@ -40,7 +40,7 @@ def print_trainable_parameters(model):
     print(f"Trainable Parameters (LoRA): {trainable_params/1e6:.2f}M")
     print(f"Percentage of Trainable Params: {(trainable_params/all_params) * 100:.4f}%")
 
-def run_training(experiment_dir, model_output_path, model_input_path, run_name, resume_from_checkpoint=None):
+def run_training(experiment_dir, model_output_path, model_input_path, data_path, run_name, resume_from_checkpoint=None):
     
    
     tokenizer = AutoTokenizer.from_pretrained(model_input_path)
@@ -49,10 +49,10 @@ def run_training(experiment_dir, model_output_path, model_input_path, run_name, 
         tokenizer.pad_token = tokenizer.eos_token
     
 
-    print("Loading dataset in streaming mode...")
+    print(f"Loading dataset in streaming mode from: {data_path}")
     dataset = load_dataset(
         "json", 
-        data_files="/shared/home/alenka.zumer/dataset_finetuning/training_data.jsonl",
+        data_files=data_path,
         split="train",
         streaming=True  
     )
@@ -191,6 +191,7 @@ def parse_args():
     parser.add_argument("--experiment_dir", type=str, required=True)
     parser.add_argument("--model_input_path", type=str, required=True)
     parser.add_argument("--model_output_path", type=str, required=True)
+    parser.add_argument("--data_path", type=str, required=True)
     parser.add_argument("--run_name", type=str, required=True)
     parser.add_argument("--resume_from_checkpoint", type=str, default=None)
     return parser.parse_args()
@@ -202,6 +203,7 @@ if __name__ == "__main__":
         args.experiment_dir, 
         args.model_output_path, 
         args.model_input_path, 
+        args.data_path,
         args.run_name, 
         args.resume_from_checkpoint
     )
