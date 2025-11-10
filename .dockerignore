@@ -1,0 +1,81 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.DS_Store
+
+# Data files - NE KOPIRAJ V DOCKER!
+*.jsonl
+*.csv
+*.txt
+*.tsv
+*.parquet
+instruct_training_data3.jsonl
+
+# Model files - NE KOPIRAJ V DOCKER!
+*.bin
+*.safetensors
+*.ckpt
+*.pth
+*.pt
+models/
+checkpoints/
+
+# Output directories
+output/
+outputs/
+experiments/
+logs/
+runs/
+wandb/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+docs/
+README.md
+
+# Test files
+test_*.py
+mini_*.py
+*_test.py
+
+# Jupyter
+*.ipynb
+.ipynb_checkpoints/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.log
+*.tmp
+temp/
+tmp/
