@@ -1,1 +1,19 @@
+# Core ML packages
+torch>=2.0.0
+transformers>=4.56.0
+datasets>=3.0.0
+accelerate>=1.10.0
 
+# Training packages
+trl>=0.24.0
+peft>=0.17.0
+
+# Logging and monitoring
+wandb>=0.17.0
+
+# Optimization
+bitsandbytes>=0.43.0
+
+# Utilities
+numpy>=1.24.0
+pandas>=2.0.0
